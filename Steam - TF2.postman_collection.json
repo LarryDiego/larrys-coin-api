@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "3eaa8684-9cdd-4249-a008-5d30414a1bfe",
+		"name": "Steam - TF2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30863323",
+		"_collection_link": "https://larrys-coin.postman.co/workspace/045fafe7-b6d6-4241-8e2e-0bb170334db2/collection/32868809-3eaa8684-9cdd-4249-a008-5d30414a1bfe?action=share&source=collection_link&creator=30863323"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nicole Lima\",\r\n    \"email\": \"nicole@email.com\",\r\n    \"password\": \"123\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"nicole@email.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Auth",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkMWU5NDY5LWE3YWMtNDg4Mi04YWJlLTU1NTYxMWIxZTA4MiIsImVtYWlsIjoibmljb2xlQGVtYWlsLmNvbSIsImlhdCI6MTczMzY4MDExOSwiZXhwIjoxNzMzNzY2NTE5fQ.nxQk-EqvxadNZoZ8u_YKr6JLyI1E28JfOBzgLLBwdic"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/auth/test"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/orders/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc3OTk5NDljLWQ3NzUtNGUyZS05ZmVjLTIxZjAzMDBjZWM5YSIsImVtYWlsIjoibmljb2xlQGVtYWlsLmNvbSIsImlhdCI6MTczMzY4NTIwOCwiZXhwIjoxNzMzNzcxNjA4fQ.XEXF0Z5EjE9Mc0em2YpXAGS1q7UIfPq-4FclMPrc_Js"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/orders"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TF2 Info",
+			"item": [
+				{
+					"name": "Keys to Balance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"keysQuantity\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/tf2/keys-to-balance"
+					},
+					"response": []
+				},
+				{
+					"name": "Balance to Keys",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"balance\": 349.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/tf2/balance-to-keys"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
